@@ -4,6 +4,14 @@ import { connect } from "react-redux";
 import * as accountSelectors from "../store/account/reducer";
 import * as accountActions from "../store/account/actions";
 import styled from "styled-components";
+import SidebarNav from "../components/SidebarNav";
+import Identity from "../components/Identity";
+import UserDetails from "../components/UserDetails";
+
+const MainWrapper = styled.div`
+  display: flex;
+  height: 100%;
+`;
 
 class DashboardScreen extends Component {
   constructor(props) {
@@ -15,7 +23,12 @@ class DashboardScreen extends Component {
   componentDidMount() {}
 
   render() {
-    return <div>Dashboard Screen</div>;
+    return (
+      <MainWrapper>
+        <SidebarNav />
+        <UserDetails />
+      </MainWrapper>
+    );
   }
 }
 
