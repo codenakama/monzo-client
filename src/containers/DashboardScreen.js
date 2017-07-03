@@ -3,6 +3,7 @@ import autoBind from "react-autobind";
 import { connect } from "react-redux";
 import * as accountSelectors from "../store/account/reducer";
 import * as accountActions from "../store/account/actions";
+import * as authActions from "../store/auth/actions";
 import styled from "styled-components";
 import SidebarNav from "../components/SidebarNav";
 import Identity from "../components/Identity";
@@ -26,7 +27,9 @@ class DashboardScreen extends Component {
     autoBind(this);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.dispatch(authActions.login());
+  }
 
   render() {
     return (
