@@ -56,6 +56,7 @@ table {
 
 body{
     font-family: 'Roboto', sans-serif;
+	font-size: 18px;
 }
 
 ul {

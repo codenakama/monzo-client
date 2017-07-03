@@ -13,6 +13,12 @@ const MainWrapper = styled.div`
   height: 100%;
 `;
 
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 66.6666%;
+`;
+
 class DashboardScreen extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +32,9 @@ class DashboardScreen extends Component {
     return (
       <MainWrapper>
         <SidebarNav />
-        <UserDetails />
+        <ContentWrapper>
+          <UserDetails />
+        </ContentWrapper>
       </MainWrapper>
     );
   }
