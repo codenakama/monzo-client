@@ -28,15 +28,21 @@ class DashboardScreen extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(authActions.login());
+    this.props.dispatch(accountActions.loadAccount());
+    this.props.dispatch(accountActions.loadBalance());
   }
 
   render() {
     return (
       <MainWrapper>
-        <SidebarNav />
+        <SidebarNav
+          account={this.props.accounts ? this.props.accounts[0] : {}}
+        />
         <ContentWrapper>
-          <UserDetails />
+          <UserDetails
+            balance={this.props.balanceData.balance || 0}
+            spentToday={this.props.balanceData.spend_today || 0}
+          />
         </ContentWrapper>
       </MainWrapper>
     );
@@ -44,7 +50,10 @@ class DashboardScreen extends Component {
 }
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    balanceData: accountSelectors.getBalanceData(state),
+    accounts: accountSelectors.getAccounts(state)
+  };
 }
 
 export default connect(mapStateToProps)(DashboardScreen);

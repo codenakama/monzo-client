@@ -24,8 +24,10 @@ class Identity extends Component {
   render() {
     return (
       <UserIdentity>
-        <Name>Ricardo Jorge Abreu</Name>
-        <Email>rj.abreu@outlook.com</Email>
+        <Name>
+          {this.props.name}
+        </Name>
+        {/*<Email>rj.abreu@outlook.com</Email>*/}
       </UserIdentity>
     );
   }

@@ -43,7 +43,7 @@ class SidebarNav extends Component {
     return (
       <SidebarWrapper>
         <IdentityWrapper>
-          <Identity />
+          <Identity name={this.props.account.description} />
         </IdentityWrapper>
         <nav>
           <Menu>

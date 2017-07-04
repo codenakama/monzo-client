@@ -27,11 +27,15 @@ class UserDetails extends Component {
     return (
       <UserDetailsWrapper>
         <Detail>
-          <DetailValue>100£</DetailValue>
+          <DetailValue>
+            £{this.props.balance / 100}
+          </DetailValue>
           <DetailDescription>Balance</DetailDescription>
         </Detail>
         <Detail>
-          <DetailValue>21.80£</DetailValue>
+          <DetailValue>
+            {(this.props.spentToday / 100).toString().replace("-", "£")}
+          </DetailValue>
           <DetailDescription>Spent Today</DetailDescription>
         </Detail>
         <Detail>
