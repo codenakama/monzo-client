@@ -10,10 +10,11 @@ class AuthService {
     const stateToken = btoa(Math.random());
     const url = `https://api.monzo.com/ping/whoami`;
 
+    console.log(process.env.REACT_APP_TEST_TOKEN);
     var headers = new Headers();
     headers.append(
-      "Bearer",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaSI6Im9hdXRoY2xpZW50XzAwMDA5TTU4ZU1JOTlHVmRocVFVZ0QiLCJleHAiOjE0OTkxNDc2ODUsImlhdCI6MTQ5OTEyNjA4NSwianRpIjoidG9rXzAwMDA5TTVDaU1MdkdQMk1zME03aWoiLCJ1aSI6InVzZXJfMDAwMDlEaHIzcTQ2d3owdXl0VUhKWiIsInYiOiIyIn0.BUb4Urbk5g6H9YZ0QcAdqzbz8dUAgCmT0n2XqggnXvEeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaSI6Im9hdXRoY2xpZW50XzAwMDA5TTU4ZU1JOTlHVmRocVFVZ0QiLCJleHAiOjE0OTkxNDc2ODUsImlhdCI6MTQ5OTEyNjA4NSwianRpIjoidG9rXzAwMDA5TTVDaU1MdkdQMk1zME03aWoiLCJ1aSI6InVzZXJfMDAwMDlEaHIzcTQ2d3owdXl0VUhKWiIsInYiOiIyIn0.BUb4Urbk5g6H9YZ0QcAdqzbz8dUAgCmT0n2XqggnXvE"
+      "authorization",
+      `Bearer ${process.env.REACT_APP_TEST_TOKEN}`
     );
 
     const response = await fetch(url, {
