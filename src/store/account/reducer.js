@@ -29,6 +29,5 @@ export function getBalanceData(state) {
 }
 
 export function getAccounts(state) {
-  console.log(state.account.accountsData.accounts);
   return state.account.accountsData.accounts;
 }
