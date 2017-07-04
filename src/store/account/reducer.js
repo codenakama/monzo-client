@@ -3,7 +3,8 @@ import Immutable from "seamless-immutable";
 
 const initialState = Immutable({
   balanceData: {},
-  accountsData: {}
+  accountsData: {},
+  transactions: []
 });
 
 export default function reduce(state = initialState, action = {}) {
@@ -16,6 +17,11 @@ export default function reduce(state = initialState, action = {}) {
     case types.ACCOUNTS_LOADED:
       return state.merge({
         accountsData: action.data
+      });
+
+    case types.TRANSACTIONS_LOADED:
+      return state.merge({
+        transactions: action.data.transactions
       });
     default:
       return state;
@@ -30,4 +36,9 @@ export function getBalanceData(state) {
 
 export function getAccounts(state) {
   return state.account.accountsData.accounts;
+}
+
+export function getTransactions(state) {
+  console.log(state.account.transactions);
+  return state.account.transactions;
 }

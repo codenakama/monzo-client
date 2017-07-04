@@ -1,5 +1,6 @@
 import * as config from "./config";
 
+//need to DRY
 class AccountsService {
   async getBalance() {
     const url =
@@ -48,7 +49,28 @@ class AccountsService {
     return result;
   }
 
-  getTransactions() {}
+  async getTransactions() {
+    const url = config.TRANSACTIONS;
+
+    var headers = new Headers();
+    headers.append(
+      "authorization",
+      `Bearer ${process.env.REACT_APP_TEST_TOKEN}`
+    );
+
+    const response = await fetch(url, {
+      method: "GET",
+
+      headers: headers
+    });
+
+    if (!response.ok) {
+      throw new Error(`AccountsService Error, status ${response.status}`);
+    }
+    const result = await response.json();
+
+    return result;
+  }
 }
 
 export default new AccountsService();

@@ -25,3 +25,15 @@ export function loadBalance() {
     }
   };
 }
+
+export function loadTransactions() {
+  return async (dispatch, getState) => {
+    try {
+      const data = await accountsService.getTransactions();
+      console.log(data);
+      dispatch({ type: types.TRANSACTIONS_LOADED, data });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+}

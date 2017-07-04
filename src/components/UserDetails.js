@@ -9,6 +9,7 @@ const UserDetailsWrapper = styled.div`
   color: #fff;
   padding: 2em;
   justify-content: space-around;
+  margin-bottom: 1em;
 `;
 
 const Detail = styled.div`

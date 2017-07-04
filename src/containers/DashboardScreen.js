@@ -8,6 +8,7 @@ import styled from "styled-components";
 import SidebarNav from "../components/SidebarNav";
 import Identity from "../components/Identity";
 import UserDetails from "../components/UserDetails";
+import TransactionsList from "../components/TransactionsList";
 
 const MainWrapper = styled.div`
   display: flex;
@@ -30,6 +31,7 @@ class DashboardScreen extends Component {
   componentDidMount() {
     this.props.dispatch(accountActions.loadAccount());
     this.props.dispatch(accountActions.loadBalance());
+    this.props.dispatch(accountActions.loadTransactions());
   }
 
   render() {
@@ -43,6 +45,7 @@ class DashboardScreen extends Component {
             balance={this.props.balanceData.balance || 0}
             spentToday={this.props.balanceData.spend_today || 0}
           />
+          <TransactionsList transactions={this.props.transactions} />
         </ContentWrapper>
       </MainWrapper>
     );
@@ -52,7 +55,8 @@ class DashboardScreen extends Component {
 function mapStateToProps(state) {
   return {
     balanceData: accountSelectors.getBalanceData(state),
-    accounts: accountSelectors.getAccounts(state)
+    accounts: accountSelectors.getAccounts(state),
+    transactions: accountSelectors.getTransactions(state)
   };
 }
 
