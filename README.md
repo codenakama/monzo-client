@@ -4,8 +4,6 @@ Built using Reactjs, Redux and Styled Components.
 
 To run this application you will have to add at the root your own *.env.local* file in the following structure:
 
-
-
 ```sh
 REACT_APP_CLIENT_SECRET=your client secret
 REACT_APP_CLIENT_ID=your client id
