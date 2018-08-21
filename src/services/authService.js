@@ -1,10 +1,24 @@
-import _ from "lodash";
 import { browserHistory } from "react-router";
+import uuidv4 from "uuid";
 import * as config from "./config";
 
 const AUTH_TOKEN = "monzo_authToken";
 
 class AuthService {
+
+  getOAuthUrl(){
+
+    const client_id = process.env.REACT_APP_CLIENT_ID;
+    const redirect_uri = 'http://localhost:3000';
+    const state_code = uuidv4();
+
+    return `https://auth.monzo.com/?
+    client_id=${client_id}&
+    redirect_uri=${redirect_uri}&
+    response_type=code&
+    state=${state_code}`
+  }
+
   async login(email, password) {
     const url = config.WHOAMI;
 

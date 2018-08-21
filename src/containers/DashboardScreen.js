@@ -1,14 +1,12 @@
-import React, { Component } from "react";
-import autoBind from "react-autobind";
-import { connect } from "react-redux";
-import * as accountSelectors from "../store/account/reducer";
-import * as accountActions from "../store/account/actions";
-import * as authActions from "../store/auth/actions";
-import styled from "styled-components";
-import SidebarNav from "../components/SidebarNav";
-import Identity from "../components/Identity";
-import UserDetails from "../components/UserDetails";
-import TransactionsList from "../components/TransactionsList";
+import React, { Component } from 'react';
+import autoBind from 'react-autobind';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import SidebarNav from '../components/SidebarNav';
+import TransactionsList from '../components/TransactionsList';
+import UserDetails from '../components/UserDetails';
+import * as accountActions from '../store/account/actions';
+import * as accountSelectors from '../store/account/reducer';
 
 const MainWrapper = styled.div`
   display: flex;
