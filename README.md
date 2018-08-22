@@ -1,12 +1,33 @@
-This is a project to "play" with Monzo's public api and practice with Styled Components.
+# react-boilerplate
 
-Built using Reactjs, Redux and Styled Components.
+A boilerplate for react projects at COT using:
 
-To run this application you will have to add at the root your own *.env.local* file in the following structure:
+- [Nextjs]("https://github.com/zeit/next.js/")
 
-```sh
-REACT_APP_CLIENT_SECRET=your client secret
-REACT_APP_CLIENT_ID=your client id
-REACT_APP_TEST_TOKEN=your token from monzo playground - **required**
-REACT_APP_USER_ID=user_00009Dhr3q46wz0uytUHJZ - **required**
-```
+- [Styled-Components]("https://www.styled-components.com/") - a css in js library to help you style components and use/reuse in a declarative fashion
+
+- [Cot-Experience component library]("https://github.com/CapitalOnTap/COTE") - gives you all of our brand guidelines out of the box
+
+- [Grid-Styled]("https://github.com/jxnblk/grid-styled") - used for simple, declarative flex grid system
+
+- [Redux]("Redux") - used for global state management
+
+- [ESLint]("") - used for coding style validations
+
+## Install
+
+Checkout project and run
+
+`yarn install`
+
+## Running - Dev
+
+To run project in dev environment
+
+`yarn dev`
+
+## Running - Prod
+
+`yarn build` and then `yarn start`
+
+You can find more details about running and deploying the project in the [Nextjs official repo]("https://github.com/zeit/next.js/").
