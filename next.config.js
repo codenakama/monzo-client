@@ -4,7 +4,7 @@ module.exports = {
   },
   publicRuntimeConfig: {
     clientSecret:
-      '7mj9XqH1ZBq5w2KUvY86lkCZ30//qnTDtojlXTaNfXYREPp32ccpHBxS1b+YT2V90cHLSY9Zu52P+rfiVReI',
-    clientId: 'oauthclient_00009M58eMI99GVdhqQUgD',
-  },
+      'mnzpub.PEwIDC+puLurghkuNNAn4oxOISeLbf87RpM1mepM4vd6pOGiCBBDm2rsq8QLq/wMu/sBnWXPpiQDH7fryBu1',
+    clientId: 'oauth2client_00009ZvUrAkAIXc1rGee01'
+  }
 };
