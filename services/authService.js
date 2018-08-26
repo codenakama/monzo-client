@@ -8,10 +8,11 @@ const MONZO_AUTH_BASE_URL = 'https://auth.monzo.com';
 const MONZO_API_BASE_URL = 'https://api.monzo.com';
 
 const getOAuthUrl = () => {
-  const { clientId } = publicRuntimeConfig;
-  const redirectUri = process.env.NETLIFY
+  const { clientId, isNetlify } = publicRuntimeConfig;
+  const redirectUri = isNetlify
     ? 'https://clever-bohr-57e9f0.netlify.com/monzo-auth'
     : 'http://localhost:3000/monzo-auth';
+
   const stateCode = uuidv4();
 
   return `${MONZO_AUTH_BASE_URL}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&state=${stateCode}`;

@@ -4,6 +4,7 @@ module.exports = {
   },
   publicRuntimeConfig: {
     clientSecret: process.env.CLIENT_SECRET,
-    clientId: process.env.CLIENT_ID
+    clientId: process.env.CLIENT_ID,
+    isNetlify: process.env.NETLIFY
   }
 };
