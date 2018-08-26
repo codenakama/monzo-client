@@ -1,5 +1,5 @@
-import uuidv4 from 'uuid';
 import getConfig from 'next/config';
+import uuidv4 from 'uuid';
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -9,13 +9,15 @@ const MONZO_API_BASE_URL = 'https://api.monzo.com';
 
 const getOAuthUrl = () => {
   const { clientId } = publicRuntimeConfig;
-  const redirectUri = 'http://localhost:3000/monzo-auth';
+  const redirectUri = process.env.NETLIFY
+    ? 'https://clever-bohr-57e9f0.netlify.com/monzo-auth'
+    : 'http://localhost:3000/monzo-auth';
   const stateCode = uuidv4();
 
   return `${MONZO_AUTH_BASE_URL}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&state=${stateCode}`;
 };
 
-const fetchWhoAmI = async (token) => {
+const fetchWhoAmI = async token => {
   const url = `${MONZO_API_BASE_URL}/ping/whoami`;
 
   const headers = new Headers();
@@ -25,7 +27,7 @@ const fetchWhoAmI = async (token) => {
   const response = await fetch(url, {
     method: 'GET',
 
-    headers,
+    headers
   });
 
   if (!response.ok) {
@@ -36,7 +38,7 @@ const fetchWhoAmI = async (token) => {
   return result;
 };
 
-const fetchToken = async (code) => {
+const fetchToken = async code => {
   const client_id = publicRuntimeConfig.clientId;
   const client_secret = publicRuntimeConfig.clientSecret;
 
@@ -54,7 +56,7 @@ const fetchToken = async (code) => {
 
   const response = await fetch(url, {
     method: 'POST',
-    body: formData,
+    body: formData
   });
 
   if (!response.ok) {
@@ -66,7 +68,7 @@ const fetchToken = async (code) => {
   return result;
 };
 
-const setToken = (token) => {
+const setToken = token => {
   localStorage.setItem(AUTH_TOKEN, token);
 };
 
@@ -80,5 +82,5 @@ export default {
   fetchToken,
   setToken,
   logout,
-  fetchWhoAmI,
+  fetchWhoAmI
 };
