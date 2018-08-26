@@ -52,7 +52,12 @@ const fetchToken = async code => {
 
   formData.append('client_secret', client_secret);
 
-  formData.append('redirect_uri', 'http://localhost:3000/monzo-auth');
+  const { isNetlify } = publicRuntimeConfig;
+  const redirectUri = isNetlify
+    ? 'https://clever-bohr-57e9f0.netlify.com/monzo-auth'
+    : 'http://localhost:3000/monzo-auth';
+
+  formData.append('redirect_uri', `${redirectUri}`);
   formData.append('code', code);
 
   const response = await fetch(url, {
