@@ -6,7 +6,7 @@ export function loginCompleted(payload) {
 }
 
 export function fetchToken(code) {
-  return async (dispatch) => {
+  return async dispatch => {
     try {
       const result = await authService.fetchToken(code);
       const { user_id, access_token } = result;
@@ -18,4 +18,9 @@ export function fetchToken(code) {
       return dispatch({ type: types.FAILED_FETCHING_TOKEN });
     }
   };
+}
+
+export function logout() {
+  authService.clearToken();
+  return { type: types.LOGOUT };
 }

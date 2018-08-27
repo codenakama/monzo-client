@@ -80,13 +80,13 @@ const setToken = token => {
 
 const getToken = () => localStorage.getItem(AUTH_TOKEN);
 
-const logout = () => localStorage.removeItem(AUTH_TOKEN);
+const clearToken = () => localStorage.removeItem(AUTH_TOKEN);
 
 export default {
   getOAuthUrl,
   getToken,
   fetchToken,
   setToken,
-  logout,
+  clearToken,
   fetchWhoAmI
 };

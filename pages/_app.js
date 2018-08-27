@@ -7,12 +7,12 @@ import initStore from '../store';
 
 const theme = {
   fonts: {
-    sans: '"Avenir Next", Helvetica, sans-serif',
+    sans: '"Avenir Next", Helvetica, sans-serif'
   },
   fontSizes: [12, 16, 24, 36, 48, 72],
   colors: {
-    blue: '#00a4db',
-  },
+    blue: '#00a4db'
+  }
 };
 
 export default withRedux(initStore, { debug: false })(
@@ -39,5 +39,5 @@ export default withRedux(initStore, { debug: false })(
         </Container>
       );
     }
-  },
+  }
 );

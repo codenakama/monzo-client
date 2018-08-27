@@ -6,14 +6,14 @@ const initialState = Immutable({
   isFetchingToken: false,
   error: '',
   userId: '',
-  token: '',
+  token: ''
 });
 
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
     case types.FETCHING_TOKEN: {
       return Immutable.merge(state, {
-        isFetchingToken: true,
+        isFetchingToken: true
       });
     }
 
@@ -22,7 +22,7 @@ export default function reduce(state = initialState, action = {}) {
         isAuthenticated: true,
         isFetchingToken: false,
         userId: action.payload.userId,
-        token: action.payload.token,
+        token: action.payload.token
       });
     }
 
@@ -30,7 +30,13 @@ export default function reduce(state = initialState, action = {}) {
       return Immutable.merge(state, {
         isAuthenticated: false,
         isFetchingToken: false,
-        error: 'Login failed',
+        error: 'Login failed'
+      });
+    }
+
+    case types.LOGOUT: {
+      return Immutable.merge(state, {
+        isAuthenticated: false
       });
     }
 
